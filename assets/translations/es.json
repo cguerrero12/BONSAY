@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "title": "BONSAY — Socio tecnológico",
+    "description": "BONSAY crea apps, páginas web, automatizaciones y soluciones de inteligencia artificial para empresas."
+  },
+  "accessibility": {
+    "skip": "Ir al contenido",
+    "home": "Inicio de BONSAY",
+    "language": "Seleccionar idioma"
+  },
+  "hero": {
+    "title": "Creamos soluciones",
+    "titleAccent": "Que mueven negocios"
+  },
+  "services": {
+    "title": "Lo que hacemos",
+    "apps": "Apps a medida",
+    "websites": "Páginas web",
+    "automation": "Automatización",
+    "ai": "IA aplicada"
+  },
+  "clients": {
+    "title": "Hemos trabajado con"
+  },
+  "contact": {
+    "ariaLabel": "Opciones de contacto",
+    "eyebrow": "¿Tienes una idea?",
+    "action": "Conversemos."
+  }
+}
