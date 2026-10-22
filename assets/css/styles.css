@@ -111,7 +111,7 @@ button {
   position: absolute;
   z-index: 0;
   top: 50%;
-  left: 42%;
+  left: 33%;
   width: clamp(500px, 52vw, 860px);
   aspect-ratio: 1;
   background: var(--mint-dark);
