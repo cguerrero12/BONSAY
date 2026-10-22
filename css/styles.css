@@ -109,7 +109,7 @@ button {
 
 .page-shell::before {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   top: 50%;
   left: 42%;
   width: clamp(500px, 52vw, 860px);
@@ -118,15 +118,14 @@ button {
   content: "";
   opacity: 0.055;
   pointer-events: none;
-  transform: translate(-50%, -50%) rotate(-7deg) scale(1.04);
+  transform: translate(-50%, -50%);
   -webkit-mask: url("../images/logoB-sinfondo.png") center / contain no-repeat;
   mask: url("../images/logoB-sinfondo.png") center / contain no-repeat;
-  animation: brand-watermark 14s ease-in-out infinite alternate;
 }
 
 .page-shell::after {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   inset: 0 -12% 0 50%;
   background: #e3efe9;
   clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
@@ -521,15 +520,6 @@ h1 em {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-@keyframes brand-watermark {
-  from {
-    transform: translate(-50%, -50%) rotate(-7deg) scale(1.04);
-  }
-  to {
-    transform: translate(-48%, -52%) rotate(-4deg) scale(1.09);
-  }
 }
 
 @keyframes headline-reveal {
