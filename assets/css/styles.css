@@ -586,6 +586,7 @@ h1 em {
 @media (max-width: 860px) {
   .page-shell::before,
   .page-shell::after {
+    content: none;
     display: none;
   }
 
