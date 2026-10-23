@@ -488,8 +488,17 @@ h1 em {
   transition: color 220ms ease;
 }
 
-.contact-link > span:first-child {
+.contact-link-copy {
+  min-width: 0;
   overflow: hidden;
+}
+
+.contact-link-label {
+  display: none;
+}
+
+.contact-link-value {
+  display: block;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -576,19 +585,22 @@ h1 em {
 
 @media (max-width: 860px) {
   .page-shell::before {
-    top: 38%;
-    left: 68%;
-    width: min(104vw, 650px);
-    opacity: 0.055;
+    top: 25%;
+    left: 80%;
+    width: min(112vw, 560px);
+    opacity: 0.03;
   }
 
   .page-shell::after {
-    inset: 0 -50% 0 52%;
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+    inset: 0 -18% auto auto;
+    width: 62%;
+    height: 30%;
+    clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 76%);
   }
 
   .page-shell {
-    padding: max(12px, env(safe-area-inset-top)) 18px max(8px, env(safe-area-inset-bottom));
+    grid-template-rows: 38px minmax(0, 1fr) 76px 16px;
+    padding: max(10px, env(safe-area-inset-top)) 16px max(6px, env(safe-area-inset-bottom));
   }
 
   .site-header {
@@ -596,15 +608,19 @@ h1 em {
   }
 
   .brand {
-    width: 110px;
-    height: 38px;
+    width: 104px;
+    height: 36px;
+  }
+
+  .language-switcher {
+    font-size: 0.62rem;
   }
 
   .stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1.05fr) minmax(170px, 0.95fr);
+    grid-template-rows: minmax(120px, 0.6fr) minmax(248px, 1.4fr);
     gap: 0;
-    padding: 10px 0;
+    padding: 4px 0 8px;
   }
 
   .intro {
@@ -615,96 +631,129 @@ h1 em {
   }
 
   h1 {
-    font-size: clamp(2.3rem, 10.4vw, 4rem);
+    font-size: clamp(1.7rem, 8.2vw, 2.9rem);
+    letter-spacing: -0.055em;
+    line-height: 0.95;
   }
 
   h1 span,
   h1 em {
-    white-space: normal;
+    white-space: nowrap;
   }
 
   h1 em {
-    max-width: 11.5ch;
+    max-width: none;
+    margin-top: 0.2em;
   }
 
   .info-rail {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    align-items: center;
-    gap: 18px;
-    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(10px, 2vh, 16px);
+    padding: clamp(10px, 1.8vh, 14px) 0 4px;
     border-top: 1px solid var(--line);
     border-left: 0;
   }
 
+  .services-block,
+  .clients-block {
+    width: 100%;
+  }
+
   .rail-label {
-    margin-bottom: 7px;
-    font-size: 0.54rem;
+    margin-bottom: 6px;
+    font-size: 0.56rem;
   }
 
   .service-list li {
-    gap: 2px;
-    padding: 7px 0;
+    gap: 3px;
+    padding: clamp(6px, 1.15vh, 9px) 0;
   }
 
   .service-list li:nth-child(odd) {
-    padding-right: 8px;
+    padding-right: 12px;
   }
 
   .service-list li:nth-child(even) {
-    padding-left: 8px;
+    padding-right: 6px;
+    padding-left: 12px;
   }
 
   .service-list span {
-    font-size: 0.48rem;
+    font-size: 0.5rem;
   }
 
   .service-list strong {
-    font-size: clamp(0.61rem, 2.6vw, 0.76rem);
+    font-size: clamp(0.7rem, 3vw, 0.84rem);
   }
 
   .client-logos figure {
-    min-height: 62px;
-    padding: 8px;
+    min-height: clamp(46px, 7vh, 58px);
+    padding: 7px 10px;
   }
 
   .client-logos img {
-    max-height: 32px;
+    max-height: 34px;
   }
 
   .contact-band {
-    grid-template-columns: minmax(0, 1.35fr) minmax(126px, 0.85fr);
-    min-height: 62px;
-    padding: 9px 11px;
+    grid-template-columns: 1fr 1fr;
+    min-height: 76px;
+    padding: 5px;
+    border-radius: 12px;
   }
 
   .contact-prompt {
     display: none;
   }
 
-  .contact-prompt small {
-    font-size: 0.48rem;
-  }
-
-  .contact-prompt strong {
-    font-size: 0.72rem;
-  }
-
   .contact-link {
-    min-height: 38px;
-    padding: 0 9px;
-    font-size: clamp(0.66rem, 2.6vw, 0.84rem);
+    justify-content: space-between;
+    min-height: 62px;
+    padding: 0 10px;
+    font-size: clamp(0.64rem, 2.7vw, 0.78rem);
   }
 
   .contact-link:first-of-type {
-    padding-left: 0;
+    padding-left: 10px;
     border-left: 0;
   }
 
+  .contact-link-copy {
+    display: grid;
+    gap: 4px;
+    overflow: visible;
+  }
+
+  .contact-link-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-body);
+    font-size: 0.48rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .contact-link-value {
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .contact-link-prefix {
+    display: none;
+  }
+
+  .contact-link-arrow {
+    font-size: 0.82rem;
+  }
+
   .site-footer {
+    justify-content: center;
     min-height: 16px;
     padding-top: 3px;
-    font-size: 0.51rem;
+    font-size: 0.49rem;
   }
 }
 
@@ -718,22 +767,21 @@ h1 em {
   }
 
   .contact-band {
-    min-height: 56px;
+    min-height: 60px;
   }
 }
 
 @media (max-width: 390px) {
-  .language-switcher {
-    font-size: 0.58rem;
+  .page-shell {
+    padding-inline: 14px;
   }
 
   h1 {
-    font-size: clamp(2.05rem, 9.8vw, 2.4rem);
+    font-size: clamp(1.62rem, 8.1vw, 2rem);
   }
 
-  .info-rail {
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-    gap: 12px;
+  .service-list strong {
+    font-size: clamp(0.66rem, 3vw, 0.75rem);
   }
 
   .clients-label {
@@ -745,26 +793,90 @@ h1 em {
     height: 5px;
   }
 
-  .client-logos {
-    grid-template-columns: 1fr;
+  .client-logos figure {
+    min-height: 44px;
+    padding: 6px 8px;
+  }
+
+  .client-logos img {
+    max-height: 28px;
+  }
+
+  .contact-band {
+    min-height: 72px;
+  }
+
+  .contact-link {
+    padding-inline: 8px;
+    font-size: 0.61rem;
+  }
+
+  .contact-link:first-of-type {
+    padding-left: 8px;
+  }
+}
+
+@media (max-width: 860px) and (max-height: 680px) {
+  .page-shell::before {
+    display: none;
+  }
+
+  .page-shell {
+    grid-template-rows: 32px minmax(0, 1fr) 60px 12px;
+    padding: max(8px, env(safe-area-inset-top)) 14px max(4px, env(safe-area-inset-bottom));
+  }
+
+  .site-header {
+    min-height: 32px;
+  }
+
+  .brand {
+    width: 94px;
+    height: 32px;
+  }
+
+  .stage {
+    grid-template-rows: minmax(88px, 0.55fr) minmax(190px, 1.45fr);
+    padding: 2px 0 5px;
+  }
+
+  h1 {
+    font-size: clamp(1.55rem, 7vw, 2.2rem);
+  }
+
+  .info-rail {
+    gap: 8px;
+    padding-top: 6px;
+  }
+
+  .rail-label {
+    margin-bottom: 4px;
+  }
+
+  .service-list li {
+    padding-block: 4px;
   }
 
   .client-logos figure {
     min-height: 36px;
-    padding: 5px;
-  }
-
-  .client-logos figure + figure {
-    border-top: 1px solid var(--line);
-    border-left: 0;
+    padding-block: 4px;
   }
 
   .client-logos img {
-    max-height: 22px;
+    max-height: 24px;
   }
 
   .contact-band {
-    grid-template-columns: minmax(0, 1.25fr) minmax(118px, 0.75fr);
+    min-height: 60px;
+  }
+
+  .contact-link {
+    min-height: 50px;
+  }
+
+  .site-footer {
+    min-height: 12px;
+    padding-top: 1px;
   }
 }
 
