@@ -584,18 +584,9 @@ h1 em {
 }
 
 @media (max-width: 860px) {
-  .page-shell::before {
-    top: 25%;
-    left: 80%;
-    width: min(112vw, 560px);
-    opacity: 0.03;
-  }
-
+  .page-shell::before,
   .page-shell::after {
-    inset: 0 -18% auto auto;
-    width: 62%;
-    height: 30%;
-    clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 76%);
+    display: none;
   }
 
   .page-shell {
@@ -604,16 +595,26 @@ h1 em {
   }
 
   .site-header {
+    position: relative;
+    justify-content: center;
     min-height: 38px;
   }
 
   .brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 104px;
     height: 36px;
+    transform: translate(-50%, -50%);
   }
 
   .language-switcher {
+    position: absolute;
+    top: 50%;
+    right: 0;
     font-size: 0.62rem;
+    transform: translateY(-50%);
   }
 
   .stage {
